@@ -3,7 +3,7 @@ $.ajax({
     type: "GET",
     dataType: "json",
     success: function (data) {
-        let myChart = echarts.init(document.getElementById('main'));
+        let myChart = echarts.init(document.getElementById('edu'))
 
         let options = {
             title: {
@@ -42,7 +42,7 @@ $.ajax({
                     type: "bar",
                 }
             ]
-        };
-        myChart.setOption(options);
+        }
+        myChart.setOption(options)
     }
 })

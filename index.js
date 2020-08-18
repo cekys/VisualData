@@ -9,7 +9,7 @@ let server = app.listen(80, function () {
 })
 
 // 仿真器服务器
-let template = [
+let gender = [
     {
         'gender': 'female',
         'count|1-1000': 1
@@ -18,4 +18,23 @@ let template = [
         'gender': 'male',
         'count|1-1000': 1
     }]
-mock.startServer('/mock/gender', template)
+
+let edu = [
+    {
+        'education': '学士',
+        'count|1-1000': 1
+    },
+    {
+        'education': '硕士',
+        'count|1-1000': 1
+    },
+    {
+        'education': '博士',
+        'count|1-1000': 1
+    }
+]
+mock.setServer('/mock/gender', gender)
+
+mock.setServer('/mock/edu', edu)
+
+mock.startServer()
