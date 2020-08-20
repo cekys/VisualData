@@ -37,4 +37,4 @@ mock.setServer('/mock/gender', gender)
 
 mock.setServer('/mock/edu', edu)
 
-mock.startServer()
+mock.startServer(3000)
