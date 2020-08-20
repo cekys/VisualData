@@ -1,12 +1,10 @@
-let mock = require('../DataMock/index')
+let emulator = require('../ceEmulator')
 let express = require('express')
 
 // express 服务器托管web文件
 let app = express()
 app.use('/web', express.static('public'))
-let server = app.listen(80, function () {
-    console.log('web server visit: http://localhost:' + server.address().port + '/web')
-})
+app.listen(80)
 
 // 仿真器服务器
 let gender = [
@@ -17,24 +15,21 @@ let gender = [
     {
         'gender': 'male',
         'count|1-1000': 1
-    }]
+    },
+]
 
-let edu = [
-    {
-        'education': '学士',
-        'count|1-1000': 1
-    },
-    {
-        'education': '硕士',
-        'count|1-1000': 1
-    },
-    {
-        'education': '博士',
+let edu = []
+
+for (let i = 0; i < 5; i++) {
+    let obj = {
+        'education': '@cfirst',
         'count|1-1000': 1
     }
-]
-mock.setServer('/mock/gender', gender)
+    edu.push(obj)
+}
 
-mock.setServer('/mock/edu', edu)
+emulator.set('/mock/gender', gender)
 
-mock.startServer(3000)
+emulator.set('/mock/edu', edu)
+
+emulator.start(3000)
