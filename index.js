@@ -1,4 +1,4 @@
-let emulator = require('../ceEmulator')
+let emulator = require('emulatorjs')
 let express = require('express')
 
 // express 服务器托管web文件
